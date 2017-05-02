@@ -2,62 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS Drum Kit</title>
+  <title>JS Drum Kit - Seinfeld Edition</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 
   <div class="keys">
+    <div class="container">
+
     <div data-key="65" class="key">
       <kbd>A</kbd>
-      <span class="sound">clap</span>
+      <span class="sound">awkward</span>
     </div>
     <div data-key="83" class="key">
       <kbd>S</kbd>
-      <span class="sound">hihat</span>
+      <span class="sound">blew</span>
     </div>
     <div data-key="68" class="key">
       <kbd>D</kbd>
-      <span class="sound">kick</span>
+      <span class="sound">nuts</span>
     </div>
     <div data-key="70" class="key">
       <kbd>F</kbd>
-      <span class="sound">openhat</span>
+      <span class="sound">idiot</span>
     </div>
     <div data-key="71" class="key">
       <kbd>G</kbd>
-      <span class="sound">boom</span>
+      <span class="sound">dingo</span>
     </div>
+  </div>
+  <div class="row">
     <div data-key="72" class="key">
       <kbd>H</kbd>
-      <span class="sound">ride</span>
+      <span class="sound">danger</span>
     </div>
     <div data-key="74" class="key">
       <kbd>J</kbd>
-      <span class="sound">snare</span>
+      <span class="sound">pretzels</span>
     </div>
     <div data-key="75" class="key">
       <kbd>K</kbd>
-      <span class="sound">tom</span>
+      <span class="sound">soup</span>
     </div>
     <div data-key="76" class="key">
       <kbd>L</kbd>
-      <span class="sound">tink</span>
+      <span class="sound">stupid</span>
     </div>
   </div>
+</div>
 
-  <audio data-key="65" src="sounds/clap.wav"></audio>
-  <audio data-key="83" src="sounds/hihat.wav"></audio>
-  <audio data-key="68" src="sounds/kick.wav"></audio>
-  <audio data-key="70" src="sounds/openhat.wav"></audio>
-  <audio data-key="71" src="sounds/boom.wav"></audio>
-  <audio data-key="72" src="sounds/ride.wav"></audio>
-  <audio data-key="74" src="sounds/snare.wav"></audio>
-  <audio data-key="75" src="sounds/tom.wav"></audio>
-  <audio data-key="76" src="sounds/tink.wav"></audio>
+  <audio data-key="65" src="sounds/seinfeld1.mp3"></audio>
+  <audio data-key="83" src="sounds/seinfeld2.mp3"></audio>
+  <audio data-key="68" src="sounds/seinfeld3.mp3"></audio>
+  <audio data-key="70" src="sounds/seinfeld4.mp3"></audio>
+  <audio data-key="71" src="sounds/seinfeld5.wav"></audio>
+  <audio data-key="72" src="sounds/seinfeld6.mp3"></audio>
+  <audio data-key="74" src="sounds/seinfeld7.mp3"></audio>
+  <audio data-key="75" src="sounds/seinfeld8.mp3"></audio>
+  <audio data-key="76" src="sounds/seinfeld9.mp3"></audio>
 
 <script>
+//keydown is name of the event, the press of the key
+// e is the event (an object full of data e.g. what key was hit)
+// window is the actual browser
+// document is the html that gets displayed in the window
+// keycode is the data-key, # associated with key letter
+// .key means the class key same as in CSS
+
+   function playSound(e)  {   // creat a function to play sounds when key event occurs
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    // is there an audio element on the page that has data-key = to the key event
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    // select the corresponding key linked to the audio as we wish to add a transition animation
+    if(!audio) return; //stops the function if no key linked to sound
+    audio.currentTime = 0; //rewinds to start upon each new click
+    audio.play(); //plays audio on click event
+    key.classList.add('playing');
+    //adds in the 'playing' class on the key which adds the transition animation
+
+  };
+
+  function removeTransition(e) {
+    // create a function to remove colour highlight transition
+    if(e.propertyName !== 'transform') return;
+    //skip it if its not a transform (from our CSS)
+    this.classList.remove('playing');
+    //this = key, in this function, it removes the transform so it does not stay highlighted
+  }
+
+  const keys = document.querySelectorAll('.key');
+  //allows us to listen on each click event
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  //listens for transition end event on each key, loops thru list of keys
+  window.addEventListener('keydown', playSound);
+  // listen for key press event, callback to function to play sound
 
 </script>
 

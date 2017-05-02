@@ -12,17 +12,20 @@
         <div class="hand hour-hand"></div>
         <div class="hand min-hand"></div>
         <div class="hand second-hand"></div>
+        <span class="time"></span>
       </div>
     </div>
 
 
+
   <style>
     html {
-      background:#018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+      background:#018DED url(http://fanaru.com/adventure-time/image/87472-adventure-time-stargazing.jpg);
       background-size:cover;
       font-family:'helvetica neue';
       text-align: center;
       font-size: 10px;
+      color: white;
     }
 
     body {
@@ -37,11 +40,12 @@
     .clock {
       width: 30rem;
       height: 30rem;
-      border:20px solid white;
+      /*border:20px solid white;*/
       border-radius:50%;
       margin:50px auto;
       position: relative;
       padding:2rem;
+      background-image: url("https://weneedfun.com/wp-content/uploads/2016/04/Moon-Surface-15.jpg");
       box-shadow:
         0 0 0 4px rgba(0,0,0,0.1),
         inset 0 0 0 3px #EFEFEF,
@@ -56,18 +60,62 @@
       transform: translateY(-3px); /* account for the height of the clock hands */
     }
 
+    .time {
+      text-align: center;
+      padding-top: 500px;
+    }
+
     .hand {
       width:50%;
       height:6px;
       background:black;
       position: absolute;
       top:50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+      color: white;
     }
 
   </style>
 
   <script>
+  //The value of a constant cannot change through re-assignment, and it can't be redeclared.
+  //A constant can be global or local to a function where it is declared
+  const secondHand = document.querySelector('.second-hand');
+  const minsHand = document.querySelector('.min-hand');
+  const hourHand = document.querySelector('.hour-hand');
 
+  // creating the function
+  function setDate()  {
+    const now = new Date();
+
+    const seconds = now.getSeconds();
+    // we need to get a base 100 to make it work with degrees
+    // 60s in a minute, 360 degrees in a circle
+    // +90 degrees offsets default as it would start left to right rather than top to bottom without it
+    const secondsDegrees = ((seconds / 60) * 360) + 90;
+    // string interpolation `${}` with backticks where is #{} in Ruby
+    // this moves the seconds hand
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+
+    const minutes = now.getMinutes();
+    const minutesDegrees = ((minutes / 60) * 360) + 90;
+    minsHand.style.transform = `rotate(${minutesDegrees}deg)`;
+
+
+    const hours = now.getHours();
+    const hoursDegrees = ((hours / 12) * 360) + 90; //because there are 12 hours on a clock face
+    hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+
+    const time = document.querySelector('span.time')
+    time.innerHTML = `${hours}:${minutes}:${seconds < 10 ? '0'+seconds : seconds}`
+
+  }
+
+  setInterval(setDate, 1000);
 
   </script>
 </body>
