@@ -18,4 +18,10 @@
 ### AFTER 
 ![screen shot 2017-05-02 at 2 26 50 pm](https://cloud.githubusercontent.com/assets/24615235/25603902/6ce05dae-2f43-11e7-8e8e-8992b474363f.png)
 
+## 5) Flex Panels Image Gallery
+### BEFORE
+![screen shot 2017-05-04 at 2 33 56 pm](https://cloud.githubusercontent.com/assets/24615235/25690666/dda79bbc-30d6-11e7-83e5-5dfd48148f67.png)
+### AFTER
+![screen shot 2017-05-04 at 2 56 47 pm](https://cloud.githubusercontent.com/assets/24615235/25690972/ef96e276-30d9-11e7-9046-5ddf33aed1ab.png)
+
 
