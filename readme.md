@@ -24,4 +24,9 @@
 ### AFTER
 ![screen shot 2017-05-04 at 2 56 47 pm](https://cloud.githubusercontent.com/assets/24615235/25690972/ef96e276-30d9-11e7-9046-5ddf33aed1ab.png)
 
+## 6) Ajax Type Ahead
+### BEFORE
+![screen shot 2017-05-04 at 4 21 30 pm](https://cloud.githubusercontent.com/assets/24615235/25692426/c78acaac-30e5-11e7-94b0-8f2f9ddbaa89.png)
+### AFTER 
+![screen shot 2017-05-04 at 4 43 21 pm](https://cloud.githubusercontent.com/assets/24615235/25692843/d7447c92-30e8-11e7-89f7-9c9e88bd17da.png)
 
