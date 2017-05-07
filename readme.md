@@ -1,4 +1,6 @@
-# Working on the Javascript30 exercises I created and customised each webpage. Before and after picture gallery is below.
+# Working on the Javascript30 exercises I created and customised each webpage, going beyond what was required. Javascript30 is a well known and fun video tutorial series that teaches Javascript.
+
+## Before and after picture gallery is below.
 
 ## 1) JS Drum Kit
 ### BEFORE
@@ -29,4 +31,11 @@
 ![screen shot 2017-05-04 at 4 21 30 pm](https://cloud.githubusercontent.com/assets/24615235/25692426/c78acaac-30e5-11e7-94b0-8f2f9ddbaa89.png)
 ### AFTER 
 ![screen shot 2017-05-04 at 4 43 21 pm](https://cloud.githubusercontent.com/assets/24615235/25692843/d7447c92-30e8-11e7-89f7-9c9e88bd17da.png)
+
+## 8) Fun with HTML5
+### BEFORE
+just a blank canvas
+### AFTER
+![screen shot 2017-05-06 at 12 41 01 pm](https://cloud.githubusercontent.com/assets/24615235/25785991/633e3a50-33d0-11e7-88f4-192aab358a26.png)
+
 
